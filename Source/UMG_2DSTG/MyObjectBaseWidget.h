@@ -19,9 +19,15 @@ class UMG_2DSTG_API UMyObjectBaseWidget : public UUserWidget
 	UPROPERTY(EditAnywhere, Category = "Edit")
 		FVector2D position;
 
+	UPROPERTY(EditAnywhere, Category = "Edit")
+		FVector2D size;
+
 	UFUNCTION(BlueprintCallable, Category = "ObjectMovement")
 		void Move(float x, float y);
 
 	UFUNCTION(BlueprintCallable, Category = "ObjectMovement")
 		void SetPosition(float x, float y);
+
+	UFUNCTION(BlueprintPure, Category = "ObjectMovement")
+		FVector2D GetPosition();
 };

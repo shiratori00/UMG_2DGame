@@ -9,6 +9,8 @@ void UMyObjectBaseWidget::NativeConstruct()
 
 void UMyObjectBaseWidget::Move(float x, float y)
 {
+	float offsetX = size.X / 2;
+	float offsetY = size.Y / 2;
 	position.X += x;
 	position.Y += y;
 
@@ -17,8 +19,15 @@ void UMyObjectBaseWidget::Move(float x, float y)
 
 void UMyObjectBaseWidget::SetPosition(float x, float y)
 {
-	position.X = x;
-	position.Y = y;
+	float offsetX = size.X / 2;
+	float offsetY = size.Y / 2;
+	position.X = x + offsetX;
+	position.Y = y + offsetY;
 
 	this->SetRenderTranslation(position);
+}
+
+FVector2D UMyObjectBaseWidget::GetPosition()
+{
+	return position;
 }
