@@ -2,18 +2,23 @@
 
 #include "MyObjectBaseWidget.h"
 
-//void UMyObjectBaseWidget::Move(float x, float y)
-//{
-//	position.X += x;
-//	position.Y += y;
-//
-//	this->RenderTransform.Translation = position;
-//}
-//
-//void UMyObjectBaseWidget::SetPosition(float x, float y)
-//{
-//	position.X = x;
-//	position.Y = y;
-//
-//	this->RenderTransform.Translation = position;
-//}
+void UMyObjectBaseWidget::NativeConstruct()
+{
+	Super::NativeConstruct();
+}
+
+void UMyObjectBaseWidget::Move(float x, float y)
+{
+	position.X += x;
+	position.Y += y;
+
+	this->SetRenderTranslation(position);
+}
+
+void UMyObjectBaseWidget::SetPosition(float x, float y)
+{
+	position.X = x;
+	position.Y = y;
+
+	this->SetRenderTranslation(position);
+}

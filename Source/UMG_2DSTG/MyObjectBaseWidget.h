@@ -14,12 +14,14 @@ class UMG_2DSTG_API UMyObjectBaseWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ObjectProperty")
-	//	FVector2D position;
+	virtual void NativeConstruct() override;
 
-	//UFUNCTION(BlueprintCallable, Category = "ObjectMovement")
-	//	void Move(float x, float y);
+	UPROPERTY(EditAnywhere, Category = "Edit")
+		FVector2D position;
 
-	//UFUNCTION(BlueprintCallable, Category = "ObjectMovement")
-	//	void SetPosition(float x, float y);
+	UFUNCTION(BlueprintCallable, Category = "ObjectMovement")
+		void Move(float x, float y);
+
+	UFUNCTION(BlueprintCallable, Category = "ObjectMovement")
+		void SetPosition(float x, float y);
 };
