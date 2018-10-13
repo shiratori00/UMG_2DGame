@@ -37,11 +37,14 @@ class UMG_2DSTG_API UMyObjectBaseWidget : public UUserWidget
 	UFUNCTION(BlueprintPure, Category = "Movement")
 		FVector2D GetPosition();
 
+	UFUNCTION(BlueprintPure, Category = "Movement")
+		FVector2D GetSize();
+
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		void Gravity();
 
 	UFUNCTION(BlueprintPure, Category = "Collision")
-		bool IsHitTargetActor(UMyObjectBaseWidget* target);
+		bool IsHitTargetActor(FVector2D targetPos, FVector2D targetSize);
 
 	UFUNCTION(BlueprintPure, Category = "Collision")
 		bool IsOutViewport(float sizeX, float sizeY);
