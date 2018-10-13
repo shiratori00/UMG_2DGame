@@ -5,6 +5,8 @@
 void UMyObjectBaseWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
+
+	
 }
 
 void UMyObjectBaseWidget::Move(float x, float y)
@@ -21,8 +23,10 @@ void UMyObjectBaseWidget::SetPosition(float x, float y)
 {
 	float offsetX = size.X / 2;
 	float offsetY = size.Y / 2;
-	position.X = x + offsetX;
-	position.Y = y + offsetY;
+	//position.X = x + offsetX;
+	//position.Y = y + offsetY;
+	position.X = x;
+	position.Y = y;
 
 	this->SetRenderTranslation(position);
 }
@@ -30,4 +34,24 @@ void UMyObjectBaseWidget::SetPosition(float x, float y)
 FVector2D UMyObjectBaseWidget::GetPosition()
 {
 	return position;
+}
+
+void UMyObjectBaseWidget::Gravity()
+{
+	//重力を適用しない場合は処理をしない
+	if (!isGravity) return;
+
+	//位置フレームの重力での移動量を取得
+	float deltaY = GWorld->DeltaTimeSeconds * gravitySpeed;
+
+	//移動処理
+	this->Move(0.0f, deltaY);
+
+}
+
+bool UMyObjectBaseWidget::IsHitTargetActor(UMyObjectBaseWidget * target)
+{
+	FVector2D position = target->position;
+	FVector2D size = target->size;
+	return false;
 }

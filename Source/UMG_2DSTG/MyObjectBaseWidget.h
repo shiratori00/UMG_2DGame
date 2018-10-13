@@ -16,18 +16,30 @@ class UMG_2DSTG_API UMyObjectBaseWidget : public UUserWidget
 
 	virtual void NativeConstruct() override;
 
-	UPROPERTY(EditAnywhere, Category = "Edit")
+	UPROPERTY(EditAnywhere, Category = "Movement")
 		FVector2D position;
 
-	UPROPERTY(EditAnywhere, Category = "Edit")
+	UPROPERTY(EditAnywhere, Category = "Movement")
 		FVector2D size;
 
-	UFUNCTION(BlueprintCallable, Category = "ObjectMovement")
+	UPROPERTY(EditAnywhere, Category = "Movement")
+		bool isGravity;
+
+	UPROPERTY(EditAnywhere, Category = "Movement")
+		float gravitySpeed;
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
 		void Move(float x, float y);
 
-	UFUNCTION(BlueprintCallable, Category = "ObjectMovement")
+	UFUNCTION(BlueprintCallable, Category = "Movement")
 		void SetPosition(float x, float y);
 
-	UFUNCTION(BlueprintPure, Category = "ObjectMovement")
+	UFUNCTION(BlueprintPure, Category = "Movement")
 		FVector2D GetPosition();
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+		void Gravity();
+
+	UFUNCTION(BlueprintPure, Category = "Collision")
+		bool IsHitTargetActor(UMyObjectBaseWidget* target);
 };
