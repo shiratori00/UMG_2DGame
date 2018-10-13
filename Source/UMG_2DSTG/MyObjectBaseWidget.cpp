@@ -11,8 +11,6 @@ void UMyObjectBaseWidget::NativeConstruct()
 
 void UMyObjectBaseWidget::Move(float x, float y)
 {
-	float offsetX = size.X / 2;
-	float offsetY = size.Y / 2;
 	position.X += x;
 	position.Y += y;
 
@@ -53,5 +51,15 @@ bool UMyObjectBaseWidget::IsHitTargetActor(UMyObjectBaseWidget * target)
 {
 	FVector2D position = target->position;
 	FVector2D size = target->size;
+	return false;
+}
+
+bool UMyObjectBaseWidget::IsOutViewport(float sizeX, float sizeY)
+{
+	//true‚È‚ç”ÍˆÍŠO
+	if ((position.X < 0) || (position.X > sizeX) || (position.Y < 0) || (position.Y > sizeY))
+	{
+		return true;
+	}
 	return false;
 }

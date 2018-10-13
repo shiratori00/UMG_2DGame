@@ -42,4 +42,7 @@ class UMG_2DSTG_API UMyObjectBaseWidget : public UUserWidget
 
 	UFUNCTION(BlueprintPure, Category = "Collision")
 		bool IsHitTargetActor(UMyObjectBaseWidget* target);
+
+	UFUNCTION(BlueprintPure, Category = "Collision")
+		bool IsOutViewport(float sizeX, float sizeY);
 };
