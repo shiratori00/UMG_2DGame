@@ -70,7 +70,7 @@ bool UMyObjectBaseWidget::IsHitTargetActor(FVector2D targetPos, FVector2D target
 bool UMyObjectBaseWidget::IsOutViewport(float sizeX, float sizeY)
 {
 	//true‚È‚ç”ÍˆÍŠO
-	if ((position.X < 0) || (position.X > sizeX) || (position.Y < 0) || (position.Y > sizeY))
+	if ((position.X < 0) || (position.X + size.X > sizeX) || (position.Y < 0) || (position.Y + size.Y > sizeY))
 	{
 		return true;
 	}
