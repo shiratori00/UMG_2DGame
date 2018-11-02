@@ -3,7 +3,6 @@
 	"EngineAssociation": "4.20",
 	"Category": "",
 	"Description": "",
-	"Enterprise": true,
 	"Modules": [
 		{
 			"Name": "UMG_2DSTG",
@@ -11,7 +10,8 @@
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"CoreUObject",
-				"UMG"
+				"UMG",
+				"Engine"
 			]
 		}
 	],
